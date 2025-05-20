@@ -1,0 +1,8 @@
+
+cc_library(
+    name = "lib",
+    hdrs = ["@//include/prefix:foo.hpp"],
+    srcs = ["@//include/prefix:foo.cpp"],
+    strip_include_prefix = ".",
+    visibility = ["//visibility:public"],
+)

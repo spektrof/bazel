@@ -1,0 +1,10 @@
+cc_binary(
+    name = "app",
+    srcs = ["main.cpp"],
+    deps = select({
+        "@//:use_strip_include_prefix" : ["@//:lib"],
+        "@//:use_include_prefix" : ["@//prefix:lib"],
+        "@//:use_strip_include_prefix_in_subdir" : ["@//include:lib"],
+        "@//:use_include_prefix_in_subdir" : ["@//include/prefix:lib"],
+    }),
+)

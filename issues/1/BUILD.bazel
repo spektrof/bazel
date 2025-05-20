@@ -1,0 +1,26 @@
+load("@bazel_skylib//rules:common_settings.bzl", "string_flag")
+
+DEP_MODES = ["strip_include_prefix", "strip_include_prefix_in_subdir", "include_prefix", "include_prefix_in_subdir"]
+
+string_flag(
+    name = "dep_mode",
+    values = DEP_MODES,
+    build_setting_default = "strip_include_prefix",
+)
+
+[
+config_setting(
+    name = "use_" + mode,
+    flag_values = { "@//:dep_mode" : mode}
+)
+for mode in DEP_MODES
+]
+
+
+cc_library(
+    name = "lib",
+    hdrs = ["@//prefix:foo.hpp"],
+    srcs = ["@//prefix:foo.cpp"],
+    strip_include_prefix = ".",
+    visibility = ["//visibility:public"],
+)

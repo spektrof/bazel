@@ -1,0 +1,10 @@
+
+build:dep_mode1 --@//:dep_mode=strip_include_prefix
+build:dep_mode2 --@//:dep_mode=include_prefix
+build:dep_mode3 --@//:dep_mode=strip_include_prefix_in_subdir
+build:dep_mode4 --@//:dep_mode=include_prefix_in_subdir
+
+build --java_runtime_version=21
+build --java_language_version=21
+build --tool_java_language_version=21
+build --tool_java_runtime_version=21
