@@ -5324,12 +5324,12 @@ public class StarlarkCcCommonTest extends BuildViewTestCase {
         .hasMessageThat()
         .contains(
             "'a.ifso' does not have any of the allowed extensions .so, .dylib, .dll, .pyd, .wasm,"
-                + " .tgt, .vpi");
+                + " .tgt, .vpi, .xll");
     assertThat(e)
         .hasMessageThat()
         .contains(
             "'a.lib' does not have any of the allowed extensions .so, .dylib, .dll, .pyd, .wasm,"
-                + " .tgt, .vpi");
+                + " .tgt, .vpi, .xll");
     assertThat(e)
         .hasMessageThat()
         .contains("'a.dll' does not have any of the allowed extensions .ifso, .tbd, .lib, .dll.a");
